@@ -19,3 +19,54 @@ En este repositorio podrás encontrar 16 ramas relacionadas con el curso, en ord
 14. revision_arquitectura
 15. creacion_exportacion_modelo
 16. creacion_servidor_flask
+
+Resumen
+
+¿Cómo publicar un modelo de Machine Learning utilizando Flask?
+Al finalizar el desarrollo de un modelo de Machine Learning, el siguiente paso es hacerlo accesible para otros usuarios. Esto se logra a través de la creación de una API que permita interactuar con el modelo desde la web. En este artículo, aprenderemos cómo desplegar un modelo utilizando Flask, un servidor Python ligero, instalándolo y configurándolo en un entorno local.
+
+¿Qué es Flask y cómo instalarlo?
+Flask es un micro framework de Python que permite crear servidores web de manera rápida y sencilla. Para instalar Flask, es fundamental asegurarse de estar dentro del entorno de trabajo adecuado para evitar instalaciones globales. Utiliza el siguiente comando para instalarlo:
+
+pip install Flask
+
+¿Qué estructura debe tener el proyecto?
+El proyecto debe tener una estructura organizada para facilitar el desarrollo y despliegue del modelo. Aquí un ejemplo de cómo podría estar configurado:
+
+Entorno: Mantener un entorno virtual aislado para las dependencias del proyecto.
+Carpetas:
+Entrada: Datos de entrada al modelo.
+Modelos: Contiene el mejor modelo encontrado.
+Utilidades y ejecución: Scripts principales para la ejecución del proyecto.
+Además, se necesita un archivo para la configuración del servidor, denominado server.py, que contendrá toda la lógica para ejecutar la API.
+
+¿Cómo configurar el servidor Flask?
+Primero, importa las librerías necesarias en el archivo server.py. Aquí un ejemplo de cómo empezar:
+
+import joblib
+import numpy as np
+from flask import Flask, jsonify, request
+
+app = Flask(__name__)
+Después, carga el modelo utilizando la librería joblib:
+
+model = joblib.load('models/best_model.pkl')
+¿Cómo definir rutas y métodos en Flask?
+Para que el servidor pueda responder a las solicitudes, define una ruta con el método que desees utilizar. Para un ejemplo sencillo con el método GET, la configuración sería:
+
+@app.route('/predict', methods=['GET'])
+def predict():
+    sample_data = np.array([[/* datos de prueba sin Country, Rank y Score */]])
+    prediction = model.predict(sample_data)
+    return jsonify({'prediction': prediction.tolist()})
+¿Cómo ejecutar el servidor y probar las predicciones?
+Ejecuta el servidor especificando el puerto que prefieras. Es recomendable utilizar puertos altos:
+
+if __name__ == '__main__':
+    app.run(port=8080)
+Luego de ejecutar el servidor, dirígete a tu navegador web e ingresa la URL local con el puerto especificado y la ruta definida (/predict) para obtener un archivo JSON con las predicciones.
+
+¿Qué hacer con las predicciones obtenidas?
+Las predicciones obtenidas en formato JSON pueden ser tratadas en diversas aplicaciones, ya sean basadas en JavaScript (front-end web) o Android (aplicaciones móviles). Así, puedes convertir tu modelo de inteligencia artificial en una solución aplicable a diferentes plataformas.
+
+Con estos pasos, se consigue una arquitectura modular y extensible para llevar modelos de Machine Learning a producción. Continúa explorando el vasto mundo del desarrollo de APIs y cómo integrar modelos de inteligencia artificial en soluciones completas. ¡El éxito está a solo un paso de distancia!

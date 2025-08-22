@@ -1,0 +1,7 @@
+#crear un entorno virtual 
+python3 -m venv nombre_del_entorno
+# Luego, activa el entorno con 
+ source nombre_del_entorno/bin/activate
+# Desde la terminal ejecuta
+pip install Flask
+pip install ipykernel     
