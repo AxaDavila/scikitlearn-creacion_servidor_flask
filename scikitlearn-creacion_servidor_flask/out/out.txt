@@ -1,0 +1,1 @@
+En esta carpeta guardamos los productos de salida de nuestro proceso. (CSV, XSLX, HTML, etc...)
