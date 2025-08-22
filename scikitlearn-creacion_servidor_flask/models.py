@@ -21,7 +21,8 @@ class Models:
                'gamma' : ['auto', 'scale'],
                'C' : [1,5,10]
            }, 'GRADIENT' : {
-               'loss' : ['ls', 'lad'],
+                   # nombres actualizados para scikit-learn >=1.0: 'ls' -> 'squared_error', 'lad' -> 'absolute_error'
+                   'loss' : ['squared_error', 'absolute_error', 'huber'],  # Updated parameter names for scikit-learn >=1.0
                'learning_rate' : [0.01, 0.05, 0.1]
            }
         }

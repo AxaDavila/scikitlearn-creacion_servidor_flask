@@ -70,3 +70,55 @@ Luego de ejecutar el servidor, dirígete a tu navegador web e ingresa la URL loc
 Las predicciones obtenidas en formato JSON pueden ser tratadas en diversas aplicaciones, ya sean basadas en JavaScript (front-end web) o Android (aplicaciones móviles). Así, puedes convertir tu modelo de inteligencia artificial en una solución aplicable a diferentes plataformas.
 
 Con estos pasos, se consigue una arquitectura modular y extensible para llevar modelos de Machine Learning a producción. Continúa explorando el vasto mundo del desarrollo de APIs y cómo integrar modelos de inteligencia artificial en soluciones completas. ¡El éxito está a solo un paso de distancia!
+
+## Uso rápido (reproducible)
+
+1. Crear y activar el entorno virtual (desde la raíz del repo):
+
+```bash
+python3 -m venv scikitlearn-creacion_servidor_flask
+source scikitlearn-creacion_servidor_flask/bin/activate
+```
+
+2. Instalar dependencias (usando `requirements.txt` con versiones pinneadas):
+
+```bash
+pip install --upgrade pip
+pip install -r requirements.txt
+```
+
+3. Entrenar y generar el modelo (genera `models/best_model.pkl`):
+
+```bash
+python main.py
+```
+
+4. Ejecutar el servidor Flask:
+
+```bash
+python server.py
+# por defecto escucha en http://127.0.0.1:7879
+```
+
+5. Probar la API:
+
+```bash
+# GET de ejemplo
+curl http://127.0.0.1:7879/predict
+
+# POST con features (JSON)
+curl -X POST -H "Content-Type: application/json" \
+    -d '{"features":[7.59,7.48,1.61,1.53,0.79,0.63,0.36,0.31,2.27]}' \
+    http://127.0.0.1:7879/predict
+```
+
+6. Ejecutar tests (pytest):
+
+```bash
+pip install pytest
+pytest -q
+```
+
+Notas:
+- Asegúrate de usar el intérprete/venv correcto (la reproducibilidad depende de la combinación Python+paquetes+SO).
+- Si necesitas aislar por completo el entorno, considera usar `conda` o un `Dockerfile`.
