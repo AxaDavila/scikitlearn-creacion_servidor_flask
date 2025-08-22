@@ -1,0 +1,29 @@
+# Ignore virtual environments
+scikitlearn-creacion_servidor_flask/
+venv/
+env/
+
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Distribution / packaging
+*.egg-info/
+dist/
+build/
+
+# OS files
+.DS_Store
+
+# pytest cache
+.pytest_cache/
+
+# Editor directories
+.vscode/
+
+# Model artifacts
+models/best_model.pkl
+
+# Python wheel / egg
+*.whl
