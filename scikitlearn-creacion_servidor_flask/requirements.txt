@@ -1,7 +1,7 @@
 #crear un entorno virtual 
-python3 -m venv nombre_del_entorno
+python3 -m venv scikitlearn-env
 # Luego, activa el entorno con 
- source nombre_del_entorno/bin/activate
+ source scikitlearn-env/bin/activate
 # Desde la terminal ejecuta
 appnope==0.1.4
 asttokens==3.0.0
@@ -12,6 +12,7 @@ debugpy==1.8.16
 decorator==5.2.1
 executing==2.2.0
 Flask==3.1.2
+iniconfig==2.1.0
 ipykernel==6.30.1
 ipython==9.4.0
 ipython_pygments_lexers==1.1.1
@@ -23,17 +24,20 @@ jupyter_client==8.6.3
 jupyter_core==5.8.1
 MarkupSafe==3.0.2
 matplotlib-inline==0.1.7
+nest-asyncio==1.6.0
 numpy==2.3.2
 packaging==25.0
 pandas==2.3.2
 parso==0.8.4
 pexpect==4.9.0
 platformdirs==4.3.8
+pluggy==1.6.0
 prompt_toolkit==3.0.51
 psutil==7.0.0
 ptyprocess==0.7.0
 pure_eval==0.2.3
 Pygments==2.19.2
+pytest==8.4.1
 python-dateutil==2.9.0.post0
 pytz==2025.2
 pyzmq==27.0.2
